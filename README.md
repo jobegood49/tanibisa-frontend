@@ -66,3 +66,24 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+#Routes
+| Routes                      | Description                 | API                             |
+| --------------------------- | --------------------------- | ------------------------------- |
+| '/'                         | Home Page                   | Get `/products`                 |
+| '/about'                    | About Page                  |                                 |
+| '/register'                 | Register Page               | POST `/register`                |
+| '/register/farmer'          | Farmer Register Page        | POST `/register/farmer`         |
+| '/register/buyer'           | Buyer Register Page         | POST `/register/buyer`          |
+| '/login'                    | Login Page                  | POST `/login`                   |
+| '/cart    '                 | Buyer Checkout Page         | GET `/carts/:id`                |
+| '/farmers/:id'              | Farmer profile and Products | GET `/farmers/:id`              |
+| '/commodities/:id'          | Commodities Page            | GET `/commodities/:id`          |
+| '/commodities/:id/products' | Products Page               | GET `/commodities/:id/products` |
+
+
+
+
+
+
+
