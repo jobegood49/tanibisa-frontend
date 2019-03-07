@@ -1,9 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Navigation from '../components/Navigation';
 
 class Home extends Component {
   render() {
-    return <div>Home Page</div>
+    return (
+      <div>
+        <Navigation />
+      </div>
+    );
   }
 }
 
-export default Home
+export default Home;
