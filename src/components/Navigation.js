@@ -53,7 +53,7 @@ const RegisterButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background: hsla(138, 48%, 71%, 1);
+    background: hsla(138, 48%, 61%, 1);
     color: #fff;
   }
 `;
