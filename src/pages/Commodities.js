@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class Commodities extends Component {
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'ADD_COMMODITY',
+    })
+  }
   render() {
     return <div>Commodities</div>
   }

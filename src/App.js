@@ -39,9 +39,14 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'GET_COMMODITIES':
+    case 'ADD_COMMODITY':
       return {
-        commodities: state.commodities,
+        commodities: state.commodities.concat({
+          id: 4,
+          title: 'Green Banana',
+          description: 'Description of the yellow banana',
+          image: 'image of the yellow banana',
+        }),
       }
     default:
       return state
