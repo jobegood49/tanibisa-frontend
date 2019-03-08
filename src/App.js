@@ -48,6 +48,8 @@ const reducer = (state = initialState, action) => {
           image: 'image of the yellow banana',
         }),
       }
+    case 'REGISTER_FARMER':
+      return {}
     default:
       return state
   }

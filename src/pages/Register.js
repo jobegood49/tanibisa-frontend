@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Form from '../components/Form'
+import { connect } from 'react-redux'
 
 const FormContent = styled.div`
   margin: 30px;
@@ -60,7 +61,7 @@ class Register extends Component {
   constructor() {
     super()
     this.state = {
-      fullName: '',
+      name: '',
       email: '',
       password: '',
       location: '',
@@ -78,12 +79,22 @@ class Register extends Component {
     event.preventDefault()
     console.log('inside the submit')
     if (
-      this.state.fullName &&
+      this.state.name &&
       this.state.email &&
       this.state.password &&
       this.state.location
     ) {
-      console.log('we are ready to register', this.state.fullName)
+      console.log('we are ready to register', this.state.name)
+
+      this.props.dispatch({
+        type: 'REGISTER_FARMER',
+        payload: {
+          name: this.state.name,
+          email: this.state.email,
+          password: this.state.password,
+          location: this.state.location,
+        },
+      })
     } else {
       console.error('One of the register fields are not entered yet')
     }
@@ -100,9 +111,9 @@ class Register extends Component {
           <FormFieldSet>
             <Label>Your full name:</Label>
             <Input
-              name="fullName"
+              name="name"
               onChange={this.onChange}
-              value={this.state.fullName}
+              value={this.state.name}
               type="text"
               placeholder="First Last"
             />
@@ -148,4 +159,14 @@ class Register extends Component {
   }
 }
 
-export default Register
+const mapDispatchToProps = dispatch => {
+  return {}
+}
+
+const mapStateToProps = state => {
+  return {
+    state,
+  }
+}
+
+export default connect(mapStateToProps)(Register)
