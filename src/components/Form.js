@@ -6,16 +6,8 @@ const StyledForm = styled.form`
   margin: 0 auto;
 `
 
-const Form = ({ children }) => {
-  return (
-    <StyledForm
-      onSubmit={event => {
-        event.preventDefault()
-      }}
-    >
-      {children}
-    </StyledForm>
-  )
+const Form = ({ onSubmit, children }) => {
+  return <StyledForm onSubmit={onSubmit}>{children}</StyledForm>
 }
 
 export default Form

@@ -57,9 +57,41 @@ const SubHeading = styled.h3`
 `
 
 class Register extends Component {
+  constructor() {
+    super()
+    this.state = {
+      fullName: '',
+      email: '',
+      password: '',
+      location: '',
+    }
+  }
+
+  onChange = event => {
+    console.log('hello')
+    this.setState({
+      [event.target.name]: event.target.value,
+    })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    console.log('inside the submit')
+    if (
+      this.state.fullName &&
+      this.state.email &&
+      this.state.password &&
+      this.state.location
+    ) {
+      console.log('we are ready to register', this.state.fullName)
+    } else {
+      console.error('One of the register fields are not entered yet')
+    }
+  }
+
   render() {
     return (
-      <Form>
+      <Form onSubmit={this.handleSubmit}>
         <Heading>
           <img src="/assets/logo/tanibisa-logo.svg" alt="" />
         </Heading>
@@ -67,22 +99,46 @@ class Register extends Component {
         <FormContent>
           <FormFieldSet>
             <Label>Your full name:</Label>
-            <Input type="text" placeholder="First Last" />
+            <Input
+              name="fullName"
+              onChange={this.onChange}
+              value={this.state.fullName}
+              type="text"
+              placeholder="First Last"
+            />
           </FormFieldSet>
 
           <FormFieldSet>
             <Label>Your email address:</Label>
-            <Input type="email" placeholder="yourname@domain.com" />
+            <Input
+              name="email"
+              onChange={this.onChange}
+              value={this.state.email}
+              type="email"
+              placeholder="yourname@domain.com"
+            />
           </FormFieldSet>
 
           <FormFieldSet>
             <Label>Your password:</Label>
-            <Input type="password" placeholder="password" />
+            <Input
+              name="password"
+              onChange={this.onChange}
+              value={this.state.password}
+              type="password"
+              placeholder="password"
+            />
           </FormFieldSet>
 
           <FormFieldSet>
             <Label>Your Location:</Label>
-            <Input type="password" placeholder="location" />
+            <Input
+              name="location"
+              onChange={this.onChange}
+              value={this.state.location}
+              type="password"
+              placeholder="location"
+            />
           </FormFieldSet>
 
           <InputSubmit type="submit" value="Sign Up" />
