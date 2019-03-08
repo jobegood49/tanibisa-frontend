@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 class Commodities extends Component {
   render() {
@@ -6,4 +7,11 @@ class Commodities extends Component {
   }
 }
 
-export default Commodities
+const mapStateToProps = state => {
+  return {
+    commodities: state.commodities,
+    // accessible through props.isAuthenticated
+  }
+}
+
+export default connect(mapStateToProps)(Commodities)
