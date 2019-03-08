@@ -14,6 +14,7 @@ const FormFieldSet = styled.div`
 const Label = styled.label`
   display: block;
   margin-bottom: 5px;
+  font-family: 'Viga', sans-serif;
 `
 
 const Input = styled.input`
@@ -59,7 +60,9 @@ class Register extends Component {
   render() {
     return (
       <Form>
-        <Heading>Tanibisa</Heading>
+        <Heading>
+          <img src="/assets/logo/tanibisa-logo.svg" alt="" />
+        </Heading>
         <SubHeading>Register as a farmer</SubHeading>
         <FormContent>
           <FormFieldSet>
