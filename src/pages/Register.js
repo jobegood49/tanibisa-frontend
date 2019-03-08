@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Form from '../components/Form'
 import { connect } from 'react-redux'
+import { registerFarmer } from '../redux/actions/register'
 
 const FormContent = styled.div`
   margin: 30px;
@@ -86,15 +87,15 @@ class Register extends Component {
     ) {
       console.log('we are ready to register', this.state.name)
 
-      this.props.dispatch({
-        type: 'REGISTER_FARMER',
-        payload: {
+      this.props.dispatch(
+        // this is a thunk in actions
+        registerFarmer({
           name: this.state.name,
           email: this.state.email,
           password: this.state.password,
           location: this.state.location,
-        },
-      })
+        })
+      )
     } else {
       console.error('One of the register fields are not entered yet')
     }
