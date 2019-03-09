@@ -32,9 +32,8 @@ const StyledH1 = styled.h1`
 
 const StyledHr = styled.hr`
   margin-top: -15px;
-  border-width: 3px;
   width: 442px;
-  border-top: 4px solid #6dcc84;
+  border-top: 3px solid #6dcc84;
 `;
 
 const IconContainers = styled.div`
