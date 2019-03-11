@@ -39,6 +39,7 @@ class CommoditiesCards extends Component {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+      margin: 30px 0;
     `;
 
     return (
