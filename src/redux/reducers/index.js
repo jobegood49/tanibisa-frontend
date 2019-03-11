@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import registerReducer from './register'
+import loginReducer from './login'
 
 // https://github.com/supasate/connected-react-router#usage
 // Create a function that takes history as an argument and returns a root reducer.
@@ -9,4 +10,5 @@ import registerReducer from './register'
 export default history =>
   combineReducers({
     register: registerReducer,
+    login: loginReducer,
   })
