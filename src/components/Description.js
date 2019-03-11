@@ -6,6 +6,8 @@ const Section = styled.section`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 30px;
+  text-align: center;
 `;
 
 const TitleDiv = styled.div`

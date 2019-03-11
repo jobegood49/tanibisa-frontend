@@ -8,6 +8,8 @@ const Section = styled.section`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  border-bottom: 4px solid hsla(135, 48%, 61%, 0.3);
+  padding: 30px;
 `;
 
 const TitleDiv = styled.div`
