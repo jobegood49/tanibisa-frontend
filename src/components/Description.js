@@ -60,7 +60,7 @@ const Description = () => {
       <TitleDiv>
         <Title>
           <TitleIcon src="/assets/images/works-icon.svg" alt="" />
-          <StyledH1>How we work?</StyledH1>
+          <StyledH1>How we works?</StyledH1>
         </Title>
       </TitleDiv>
 
@@ -80,15 +80,15 @@ const Description = () => {
         <DescriptionColumn>
           <img src="/assets/images/best-price-icon.svg" alt="" />
           <p>
-            Tanibisa encourage farmers to improve quality of harvested products
-            so that consuments can get best quality products from farmers.
+            You'll get fresh farmer commodities with lower price from the market
+            since you get it directly from farmers
           </p>
         </DescriptionColumn>
         <DescriptionColumn>
           <img src="/assets/images/social-care-icon.svg" alt="" />
           <p>
-            Tanibisa encourage farmers to improve quality of harvested products
-            so that consuments can get best quality products from farmers.
+            Buying products from tanibisa will help farmers improve their
+            incomes and opportunities for better life.
           </p>
         </DescriptionColumn>
       </DescriptionContainer>
