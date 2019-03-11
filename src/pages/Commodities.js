@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 class Commodities extends Component {
   componentDidMount() {
     this.props.dispatch({
-      type: 'ADD_COMMODITY',
+      type: 'ADD_COMMODITY'
     })
   }
   render() {
@@ -14,7 +14,7 @@ class Commodities extends Component {
 
 const mapStateToProps = state => {
   return {
-    commodities: state.commodities,
+    commodities: state.commodities
     // accessible through props.isAuthenticated
   }
 }
