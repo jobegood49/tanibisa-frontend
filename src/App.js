@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { createStore } from 'redux' // a function, so it's camelCase
 import { Provider } from 'react-redux' // a component, so it's TitleCase
 
 import Home from './pages/Home'
@@ -82,6 +81,12 @@ class App extends Component {
             <Route path={`/register`} component={Register} />
             <Route path={`/login`} component={Login} />
             <Route path={`/commodities`} component={Commodities} />
+            {/* <Route path={`/commodities/:id`} component={Commodity} /> */}
+            {/* <Route path={`/products`} component={Products} /> */}
+            {/* <Route path={`/products/:id`} component={Product} /> */}
+            {/* <Route path={`/cart`} component={Cart} /> */}
+            {/* <Route path={`/checkout`} component={Checkout} /> */}
+            {/* <Route path={`/checkout/success`} component={CheckoutSuccess} /> */}
           </Switch>
         </Router>
       </Provider>

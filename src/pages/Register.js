@@ -65,14 +65,14 @@ class Register extends Component {
       name: '',
       email: '',
       password: '',
-      location: '',
+      location: ''
     }
   }
 
   onChange = event => {
     console.log('hello')
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     })
   }
 
@@ -93,7 +93,7 @@ class Register extends Component {
           name: this.state.name,
           email: this.state.email,
           password: this.state.password,
-          location: this.state.location,
+          location: this.state.location
         })
       )
     } else {
@@ -160,13 +160,9 @@ class Register extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {}
-}
-
 const mapStateToProps = state => {
   return {
-    state,
+    state
   }
 }
 
