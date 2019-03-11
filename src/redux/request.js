@@ -1,13 +1,17 @@
 import axios from 'axios'
 
+import browserStorage from './browserStorage'
+
+const token = browserStorage.getKey('token') || null
+
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_API_URL || 'http://localhost:8000',
   timeout: 2000,
   headers: {
     // will be replaced by actual token header
-    // Authorization: `Bearer ${token}` || '',
-    'X-Custom-Header': 'ideabyte-frontend',
-  },
+    Authorization: `Bearer ${token}` || '',
+    'X-Custom-Header': 'tanibisa-frontend'
+  }
 })
 
 const request = async ({ method, url, data }) => {
@@ -15,7 +19,7 @@ const request = async ({ method, url, data }) => {
     const response = await axiosInstance({
       method: method || 'get', // either get, post, delete, put
       url: url || '/',
-      data: data || {},
+      data: data || {}
     })
     return response
   } catch (error) {
