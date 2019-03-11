@@ -26,7 +26,9 @@
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createBrowserHistory } from 'history'
 import { applyMiddleware, createStore } from 'redux'
+import { routerMiddleware } from 'connected-react-router'
 
+import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 
 import createRootReducer from './reducers'
@@ -42,6 +44,8 @@ export default function configureStore(preloadedState) {
     preloadedState,
     composeWithDevTools(
       applyMiddleware(
+        routerMiddleware(history), // for dispatching history actions
+        logger, // for logging when there's an action
         thunk // for handling asynchronous operation
       )
     )
