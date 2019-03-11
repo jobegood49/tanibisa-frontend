@@ -1,2 +1,0 @@
-# tanibisa-frontend
-Tanbisa frontend
