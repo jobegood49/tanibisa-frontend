@@ -12,6 +12,10 @@ const Card = styled.div`
   border-radius: 5px;
 `;
 
+const CardImage = styled.img`
+  border-radius: 5px 5px;
+`;
+
 const CommoditiesCard = ({ item }) => {
   return (
     <Card>
