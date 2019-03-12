@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const StyledSection = styled.section`
   display: flex;
@@ -62,12 +63,16 @@ const Categories = () => {
       </TitleDiv>
       <ContainerDiv>
         <Card>
-          <IconFarmer />
+          <Link to="/registerFarmer">
+            <IconFarmer />
+          </Link>
           <h1>Farmer</h1>
           <h3>Register as a Farmer</h3>
         </Card>
         <Card>
-          <IconBuyer />
+          <Link to="/registerBuyer">
+            <IconBuyer />
+          </Link>
           <h1>Buyer</h1>
           <h3>Register as a Buyer</h3>
         </Card>

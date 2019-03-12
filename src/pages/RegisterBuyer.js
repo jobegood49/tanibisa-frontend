@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Form from '../components/Form'
 import { connect } from 'react-redux'
-import { registerFarmer } from '../redux/actions/register'
+import { registerBuyer } from '../redux/actions/register'
 
 const FormContent = styled.div`
   margin: 30px;
@@ -65,7 +65,6 @@ class RegisterFarmer extends Component {
       name: '',
       email: '',
       password: '',
-      location: '',
     }
   }
 
@@ -79,21 +78,15 @@ class RegisterFarmer extends Component {
   handleSubmit = event => {
     event.preventDefault()
     console.log('inside the submit')
-    if (
-      this.state.name &&
-      this.state.email &&
-      this.state.password &&
-      this.state.location
-    ) {
-      console.log('we are ready to register', this.state.name)
+    if (this.state.name && this.state.email && this.state.password) {
+      console.log('we are ready to register buyer', this.state.name)
 
       this.props.dispatch(
         // this is a thunk in actions
-        registerFarmer({
+        registerBuyer({
           name: this.state.name,
           email: this.state.email,
           password: this.state.password,
-          location: this.state.location,
         })
       )
     } else {
@@ -107,7 +100,7 @@ class RegisterFarmer extends Component {
         <Heading>
           <img src="/assets/logo/tanibisa-logo.svg" alt="" />
         </Heading>
-        <SubHeading>Register as a farmer</SubHeading>
+        <SubHeading>Register as a buyer</SubHeading>
         <FormContent>
           <FormFieldSet>
             <Label>Your full name:</Label>
@@ -139,17 +132,6 @@ class RegisterFarmer extends Component {
               value={this.state.password}
               type="password"
               placeholder="password"
-            />
-          </FormFieldSet>
-
-          <FormFieldSet>
-            <Label>Your Location:</Label>
-            <Input
-              name="location"
-              onChange={this.onChange}
-              value={this.state.location}
-              type="password"
-              placeholder="location"
             />
           </FormFieldSet>
 
