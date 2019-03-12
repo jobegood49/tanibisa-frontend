@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { createStore } from 'redux'; // a function, so it's camelCase
 import { Provider } from 'react-redux'; // a component, so it's TitleCase
 
 import Home from './pages/Home';
