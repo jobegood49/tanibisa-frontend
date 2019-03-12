@@ -41,3 +41,45 @@ export const registerFarmer = payload => {
       })
   }
 }
+
+export const registerBuyerBegin = () => ({
+  type: 'REGISTER_BUYER_BEGIN',
+})
+
+export const registerBuyerSuccess = response => {
+  return {
+    type: 'REGISTER_BUYER_SUCCESS',
+    payload: {
+      response,
+    },
+  }
+}
+
+export const registerBuyerError = error => ({
+  type: 'REGISTER_BUYER_ERROR',
+  payload: {
+    error,
+  },
+})
+
+export const registerBuyer = payload => {
+  return dispatch => {
+    dispatch(registerBuyerBegin())
+
+    request({
+      method: 'post',
+      url: '/buyers/register',
+      data: payload,
+    })
+      .then(response => {
+        console.info('response:', response)
+        dispatch(registerBuyerSuccess(response))
+        return response
+      })
+      .catch(error => {
+        console.error('error:', error)
+        // REGISTER_USER_ERROR
+        dispatch(registerBuyerError(error))
+      })
+  }
+}
