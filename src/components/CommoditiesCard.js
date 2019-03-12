@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { Link } from 'react-router-dom';
+
 const Card = styled.div`
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.9);
   margin: 10px;
@@ -50,7 +52,9 @@ const CommoditiesCard = ({ item }) => {
       <h3>{item.name}</h3>
       <StyledHr />
       <PriceText>{item.price}</PriceText>
-      <CardButton>See More</CardButton>
+      <Link to="/commodity/apple">
+        <CardButton>See More</CardButton>
+      </Link>
     </Card>
   )
 }
