@@ -70,6 +70,8 @@ import Commodities from './pages/Commodities'
 import configureStore from './redux/configurestore'
 import RegisterFarmer from './pages/RegisterFarmer'
 import RegisterBuyer from './pages/RegisterBuyer'
+import LoginFarmer from './pages/LoginFarmer'
+import LoginBuyer from './pages/LoginBuyer'
 
 // import store from './redux/store'
 const store = configureStore(/* provide initial state if any */)
@@ -85,6 +87,8 @@ class App extends Component {
             <Route path={`/register`} component={Register} />
             <Route path={`/registerFarmer`} component={RegisterFarmer} />
             <Route path={`/registerBuyer`} component={RegisterBuyer} />
+            <Route path={`/loginFarmer`} component={LoginFarmer} />
+            <Route path={`/loginBuyer`} component={LoginBuyer} />
             <Route path={`/login`} component={Login} />
             <Route path={`/commodities`} component={Commodities} />
             {/* <Route path={`/commodities/:id`} component={Commodity} /> */}
