@@ -4,9 +4,9 @@ const initialState = {
   isLoading: false,
 }
 
-const registerReducer = (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'REGISTER_FARMER_BEGIN': {
+    case 'LOGIN_FARMER_BEGIN': {
       // Mark the state as "loading" so we can show a spinner or something
       // Also, reset any errors. We're starting fresh.
       return {
@@ -16,7 +16,7 @@ const registerReducer = (state = initialState, action) => {
       }
     }
 
-    case 'REGISTER_FARMER_SUCCESS': {
+    case 'LOGIN_FARMER_SUCCESS': {
       // All done: set loading "false".
       // Also, replace the items with the ones from the server
       return {
@@ -26,7 +26,7 @@ const registerReducer = (state = initialState, action) => {
       }
     }
 
-    case 'REGISTER_FARMER_ERROR': {
+    case 'LOGIN_FARMER_ERROR': {
       // The request failed. It's done. So set loading to "false".
       // Save the error, so we can display it somewhere.
       // Since it failed, we don't have items to display anymore, so set `items` empty.
@@ -42,7 +42,7 @@ const registerReducer = (state = initialState, action) => {
       }
     }
 
-    case 'REGISTER_BUYER_BEGIN': {
+    case 'LOGIN_BUYER_BEGIN': {
       // Mark the state as "loading" so we can show a spinner or something
       // Also, reset any errors. We're starting fresh.
       return {
@@ -52,7 +52,7 @@ const registerReducer = (state = initialState, action) => {
       }
     }
 
-    case 'REGISTER_BUYER_SUCCESS': {
+    case 'LOGIN_BUYER_SUCCESS': {
       // All done: set loading "false".
       // Also, replace the items with the ones from the server
       return {
@@ -62,7 +62,7 @@ const registerReducer = (state = initialState, action) => {
       }
     }
 
-    case 'REGISTER_BUYER_ERROR': {
+    case 'LOGIN_BUYER_ERROR': {
       // The request failed. It's done. So set loading to "false".
       // Save the error, so we can display it somewhere.
       // Since it failed, we don't have items to display anymore, so set `items` empty.
@@ -85,4 +85,4 @@ const registerReducer = (state = initialState, action) => {
   }
 }
 
-export default registerReducer
+export default loginReducer

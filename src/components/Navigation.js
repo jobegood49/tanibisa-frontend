@@ -1,29 +1,29 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-`;
+`
 
 const NavLi = styled.li`
   display: inline;
   font-size: 16px;
   font-weight: bold;
   margin: 10px 20px;
-`;
+`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: #000;
-`;
+`
 
 const StyledDiv = styled.div`
   display: flex;
   align-items: center;
-`;
+`
 
 const LoginButton = styled.button`
   border-radius: 5px;
@@ -39,7 +39,7 @@ const LoginButton = styled.button`
   &:hover {
     background: hsla(138, 48%, 71%, 1);
   }
-`;
+`
 
 const RegisterButton = styled.button`
   border-radius: 5px;
@@ -56,7 +56,7 @@ const RegisterButton = styled.button`
     background: hsla(138, 48%, 61%, 1);
     color: #fff;
   }
-`;
+`
 
 const Navigation = () => {
   return (
@@ -93,7 +93,7 @@ const Navigation = () => {
         </NavLi>
       </StyledDiv>
     </Nav>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation

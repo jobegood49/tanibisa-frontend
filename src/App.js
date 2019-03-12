@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { createStore } from 'redux' // a function, so it's camelCase
 import { Provider } from 'react-redux' // a component, so it's TitleCase
 
 import Home from './pages/Home'
 import About from './pages/About'
 import Register from './pages/Register'
+
 import Login from './pages/Login'
 import Commodities from './pages/Commodities'
 
@@ -68,6 +68,11 @@ import Commodities from './pages/Commodities'
 // REDUX STORE
 // We replace the regular store with enhanced configureStore()
 import configureStore from './redux/configurestore'
+import RegisterFarmer from './pages/RegisterFarmer'
+import RegisterBuyer from './pages/RegisterBuyer'
+import LoginFarmer from './pages/LoginFarmer'
+import LoginBuyer from './pages/LoginBuyer'
+
 // import store from './redux/store'
 const store = configureStore(/* provide initial state if any */)
 
@@ -80,8 +85,18 @@ class App extends Component {
             <Route exact path={`/`} component={Home} />
             <Route path={`/about`} component={About} />
             <Route path={`/register`} component={Register} />
+            <Route path={`/registerFarmer`} component={RegisterFarmer} />
+            <Route path={`/registerBuyer`} component={RegisterBuyer} />
+            <Route path={`/loginFarmer`} component={LoginFarmer} />
+            <Route path={`/loginBuyer`} component={LoginBuyer} />
             <Route path={`/login`} component={Login} />
             <Route path={`/commodities`} component={Commodities} />
+            {/* <Route path={`/commodities/:id`} component={Commodity} /> */}
+            {/* <Route path={`/products`} component={Products} /> */}
+            {/* <Route path={`/products/:id`} component={Product} /> */}
+            {/* <Route path={`/cart`} component={Cart} /> */}
+            {/* <Route path={`/checkout`} component={Checkout} /> */}
+            {/* <Route path={`/checkout/success`} component={CheckoutSuccess} /> */}
           </Switch>
         </Router>
       </Provider>

@@ -72,7 +72,7 @@ const Categories = () => {
             src="/assets/images/categories-icon.svg"
             alt="Commodites"
           />
-          <StyledH1>Commodities Categories</StyledH1>
+          <StyledH1>Available Commodities</StyledH1>
         </Title>
         <StyledHr />
       </TitleDiv>

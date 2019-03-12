@@ -1,9 +1,18 @@
 import React, { Component } from 'react'
+import Navigation from '../components/Navigation'
+import Footer from '../components/Footer'
+import LoginChoice from '../components/LoginChoice'
 
-class Login extends Component {
+class Register extends Component {
   render() {
-    return <div>Login</div>
+    return (
+      <div>
+        <Navigation />
+        <LoginChoice />
+        <Footer />
+      </div>
+    )
   }
 }
 
-export default Login
+export default Register
