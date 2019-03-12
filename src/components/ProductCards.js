@@ -9,11 +9,13 @@ const Section = styled.section`
   margin: 30px 0;
 `;
 
-const ProductCards = ({ products }) => {
+const ProductCards = ({ products, commodity }) => {
   return (
     <Section>
       {products.map((product, index) => {
-        return <ProductCard product={product} key={index} />;
+        return (
+          <ProductCard product={product} key={index} commodity={commodity} />
+        );
       })}
     </Section>
   );

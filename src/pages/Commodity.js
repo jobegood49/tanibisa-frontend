@@ -17,13 +17,13 @@ class Commodity extends Component {
       products: [
         {
           farmer_name: 'Jonathan',
-          farmer_image: '',
+          farmer_image: '/assets/images/jonathan-avatar.png',
           farmer_location: 'Kebumen',
           price: 34000
         },
         {
           farmer_name: 'Nicholas',
-          farmer_image: '',
+          farmer_image: '/assets/images/nicholas-avatar.png',
           farmer_location: 'Bogor',
           price: 34000
         }
@@ -36,7 +36,10 @@ class Commodity extends Component {
       <section>
         <Navigation />
         <CommodityDescription commodity={this.state.commodity} />
-        <ProductCards products={this.state.products} />
+        <ProductCards
+          products={this.state.products}
+          commodity={this.state.commodity}
+        />
         <Footer />
       </section>
     );
