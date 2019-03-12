@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import CommodityDescription from '../components/CommodityDescription';
+import ProductCards from '../components/ProductCards';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 class Commodity extends Component {
   constructor() {
@@ -8,7 +11,7 @@ class Commodity extends Component {
       commodity: {
         name: 'Rome Beauty Apple',
         description:
-          'Rome beauty apple has soft texture & pleasant smell. It tastes a little sour. This apple originally from Netherland and grow on the highland. ',
+          'Rome beauty apple has soft texture & pleasant smell. It tastes a little sour. This apple originally from Netherland and grow on the highland.',
         image: '/assets/images/rome-beauty-apple.png'
       },
       products: [
@@ -31,7 +34,10 @@ class Commodity extends Component {
     console.log(this.state.commodity.name);
     return (
       <section>
+        <Navigation />
         <CommodityDescription commodity={this.state.commodity} />
+        <ProductCards products={this.state.products} />
+        <Footer />
       </section>
     );
   }
