@@ -41,3 +41,45 @@ export const loginFarmer = payload => {
       })
   }
 }
+
+export const loginBuyerBegin = () => ({
+  type: 'LOGIN_BUYER_BEGIN',
+})
+
+export const loginBuyerSuccess = response => {
+  return {
+    type: 'LOGIN_BUYER_SUCCESS',
+    payload: {
+      response,
+    },
+  }
+}
+
+export const loginBuyerError = error => ({
+  type: 'LOGIN_BUYER_ERROR',
+  payload: {
+    error,
+  },
+})
+
+export const loginBuyer = payload => {
+  return dispatch => {
+    dispatch(loginBuyerBegin())
+
+    request({
+      method: 'post',
+      url: '/buyers/login',
+      data: payload,
+    })
+      .then(response => {
+        console.info('response:', response)
+        dispatch(loginBuyerSuccess(response))
+        return response
+      })
+      .catch(error => {
+        console.error('error:', error)
+        // REGISTER_USER_ERROR
+        dispatch(loginBuyerError(error))
+      })
+  }
+}
