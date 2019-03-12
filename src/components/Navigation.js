@@ -87,7 +87,7 @@ const Navigation = () => {
           </StyledLink>
         </NavLi>
         <NavLi>
-          <StyledLink to="/registerFarmer">
+          <StyledLink to="/register">
             <RegisterButton>Register</RegisterButton>
           </StyledLink>
         </NavLi>
