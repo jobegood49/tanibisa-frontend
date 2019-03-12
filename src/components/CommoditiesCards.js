@@ -9,27 +9,27 @@ class CommoditiesCards extends Component {
       commodities: [
         {
           id: 1,
-          name: 'Mangoosten',
-          price: 'Rp 14.000/ 500 gram',
-          image: '/assets/images/mangosteen.png'
+          name: 'Rome Beauty Apple',
+          price: 'Rp 34.000/Kg',
+          image: '/assets/images/rome-beauty-apple.png',
+          description:
+            'Rome beauty apple has soft texture & pleasant smell. It tastes a little sour. This apple originally from Netherland and grow on the highland. '
         },
         {
           id: 2,
-          name: 'Mangosteen',
-          price: 'Rp 14.000/ 500 gram',
-          image: '/assets/images/mangosteen.png'
+          name: 'Rome Beauty Apple',
+          price: 'Rp 34.000/Kg',
+          image: '/assets/images/rome-beauty-apple.png',
+          description:
+            'Rome beauty apple has soft texture & pleasant smell. It tastes a little sour. This apple originally from Netherland and grow on the highland. '
         },
         {
           id: 3,
-          name: 'Mangosteen',
-          price: 'Rp 14.000/ 500 gram',
-          image: '/assets/images/mangosteen.png'
-        },
-        {
-          id: 4,
-          name: 'Mangosteen',
-          price: 'Rp 14.000/ 500 gram',
-          image: '/assets/images/mangosteen.png'
+          name: 'Rome Beauty Apple',
+          price: 'Rp 34.000/Kg',
+          image: '/assets/images/rome-beauty-apple.png',
+          description:
+            'Rome beauty apple has soft texture & pleasant smell. It tastes a little sour. This apple originally from Netherland and grow on the highland. '
         }
       ]
     };
