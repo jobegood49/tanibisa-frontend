@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Form from '../components/Form'
 import { connect } from 'react-redux'
-import { loginFarmer } from '../redux/actions/login'
+import { loginBuyer } from '../redux/actions/login'
 
 const FormContent = styled.div`
   margin: 30px;
@@ -82,7 +82,7 @@ class LoginBuyer extends Component {
 
       this.props.dispatch(
         // this is a thunk in actions
-        loginFarmer({
+        loginBuyer({
           email: this.state.email,
           password: this.state.password,
         })
