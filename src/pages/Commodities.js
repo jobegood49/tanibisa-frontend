@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import Navigation from '../components/Navigation';
+import CommoditiesCards from '../components/CommoditiesCards';
+import Footer from '../components/Footer';
 
 class Commodities extends Component {
-  componentDidMount() {
-    this.props.dispatch({
-      type: 'ADD_COMMODITY'
-    })
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
   render() {
-    return <div>Commodities</div>
+    return (
+      <div>
+        <Navigation />
+        <CommoditiesCards />
+        <Footer />
+      </div>
+    );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    commodities: state.commodities
-    // accessible through props.isAuthenticated
-  }
-}
-
-export default connect(mapStateToProps)(Commodities)
+export default Commodities;

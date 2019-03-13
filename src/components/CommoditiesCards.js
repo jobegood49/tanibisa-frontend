@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import CommoditiesCard from '../components/CommoditiesCard';
+import { connect } from 'react-redux';
+import { getCommodities } from '../redux/actions/commodities';
 
 class CommoditiesCards extends Component {
   constructor() {
@@ -34,6 +36,11 @@ class CommoditiesCards extends Component {
       ]
     };
   }
+
+  componentDidMount = () => {
+    this.props.dispatch(getCommodities());
+  };
+
   render() {
     const Section = styled.section`
       display: flex;
@@ -52,4 +59,11 @@ class CommoditiesCards extends Component {
   }
 }
 
-export default CommoditiesCards;
+const mapStateToProps = state => {
+  return {
+    commodities: state.commodities.data,
+    isLoading: state.commodities.isLoading
+  };
+};
+
+export default connect(mapStateToProps)(CommoditiesCards);

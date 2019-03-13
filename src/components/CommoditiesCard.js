@@ -52,7 +52,7 @@ const CommoditiesCard = ({ item }) => {
       <h3>{item.name}</h3>
       <StyledHr />
       <PriceText>{item.price}</PriceText>
-      <Link to="/commodity/apple">
+      <Link to="/commodities/apple">
         <CardButton>See More</CardButton>
       </Link>
     </Card>
