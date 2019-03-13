@@ -51,9 +51,26 @@ class CommoditiesCards extends Component {
 
     return (
       <Section>
-        {this.state.commodities.map((item, index) => {
-          return <CommoditiesCard key={index} item={item} />;
-        })}
+        {this.props.isLoading ? (
+          <span>is loading...</span>
+        ) : (
+          this.props.commodities &&
+          this.props.commodities.map((item, index) => {
+            console.log(item);
+            return <CommoditiesCard item={item} key={index} />;
+          })
+        )
+        //   if (this.props.isLoading) {
+        //     return <span>is loading...</span>;
+        //   } else {
+        //     console.log('test');
+        //     this.props.commodities.map((item, index) => {
+        //       console.log(item);
+        //       return <div>{item.name}</div>;
+        //     });
+        //   }
+        // }
+        }
       </Section>
     );
   }

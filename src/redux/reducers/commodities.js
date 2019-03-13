@@ -1,6 +1,7 @@
 const initialState = {
   latestError: null,
-  isLoading: false
+  isLoading: false,
+  data: []
 };
 
 const commoditiesReducer = (state = initialState, action) => {
