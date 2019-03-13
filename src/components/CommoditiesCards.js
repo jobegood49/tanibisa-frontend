@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import CommoditiesCard from '../components/CommoditiesCard';
+import { connect } from 'react-redux';
+import { getCommodities } from '../redux/actions/commodities';
 
 class CommoditiesCards extends Component {
   constructor() {
@@ -34,6 +36,11 @@ class CommoditiesCards extends Component {
       ]
     };
   }
+
+  componentDidMount = () => {
+    this.props.dispatch(getCommodities());
+  };
+
   render() {
     const Section = styled.section`
       display: flex;
@@ -44,12 +51,36 @@ class CommoditiesCards extends Component {
 
     return (
       <Section>
-        {this.state.commodities.map((item, index) => {
-          return <CommoditiesCard key={index} item={item} />;
-        })}
+        {this.props.isLoading ? (
+          <span>is loading...</span>
+        ) : (
+          this.props.commodities &&
+          this.props.commodities.map((item, index) => {
+            console.log(item);
+            return <CommoditiesCard item={item} key={index} />;
+          })
+        )
+        //   if (this.props.isLoading) {
+        //     return <span>is loading...</span>;
+        //   } else {
+        //     console.log('test');
+        //     this.props.commodities.map((item, index) => {
+        //       console.log(item);
+        //       return <div>{item.name}</div>;
+        //     });
+        //   }
+        // }
+        }
       </Section>
     );
   }
 }
 
-export default CommoditiesCards;
+const mapStateToProps = state => {
+  return {
+    commodities: state.commodities.data,
+    isLoading: state.commodities.isLoading
+  };
+};
+
+export default connect(mapStateToProps)(CommoditiesCards);
