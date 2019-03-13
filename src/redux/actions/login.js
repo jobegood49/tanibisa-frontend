@@ -1,5 +1,6 @@
 import request from '../request'
 import browserStorage from '../browserStorage'
+import { push } from 'connected-react-router'
 
 export const loginFarmerBegin = () => ({
   type: 'LOGIN_FARMER_BEGIN',
@@ -37,8 +38,11 @@ export const loginFarmer = payload => {
         // Set isAuthenticated to true in the storage
         browserStorage.setKey('isAuthenticated', true)
         // Set token in the storage
-        browserStorage.setKey('token', response.data.token)
+        // browserStorage.setKey('token', response.data.token)
         return response
+      })
+      .then(() => {
+        dispatch(push('/'))
       })
       .catch(error => {
         console.error('error:', error)
