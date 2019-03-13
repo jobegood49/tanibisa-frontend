@@ -36,13 +36,13 @@ export const loginFarmer = payload => {
         dispatch(loginFarmerSuccess(response))
         console.log('setting up the localstorage')
         // Set isAuthenticated to true in the storage
-        browserStorage.setKey('isAuthenticated', true)
+        // browserStorage.setKey('isAuthenticated', true)
         // Set token in the storage
-        // browserStorage.setKey('token', response.data.token)
+        browserStorage.setKey('token', response.data.token)
         return response
       })
       .then(() => {
-        dispatch(push('/'))
+        dispatch(push('/profile'))
       })
       .catch(error => {
         console.error('error:', error)

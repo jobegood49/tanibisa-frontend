@@ -3,12 +3,22 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux' // a component, so it's TitleCase
 import { ConnectedRouter } from 'connected-react-router'
 
+<<<<<<< HEAD
 import Home from './pages/Home';
 import About from './pages/About';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Commodities from './pages/Commodities';
 import Commodity from './pages/Commodity';
+=======
+import Home from './pages/Home'
+import About from './pages/About'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Commodities from './pages/Commodities'
+import Commodity from './pages/Commodity'
+import Profile from './pages/Profile'
+>>>>>>> Add login redirection to profile page
 
 // REDUX INITIAL STATE
 
@@ -101,6 +111,8 @@ class App extends Component {
             <Route path={`/loginBuyer`} component={LoginBuyer} />
             <Route path={`/login`} component={Login} />
             <Route path={`/commodities`} component={Commodities} />
+            <Route path={`/profile`} component={Profile} />
+
             {/* <Route path={`/commodities/:id`} component={Commodity} /> */}
             {/* <Route path={`/cart`} component={Cart} /> */}
             {/* <Route path={`/checkout`} component={Checkout} /> */}
