@@ -78,7 +78,7 @@ class LoginFarmer extends Component {
     event.preventDefault()
     console.log('inside the submit')
     if (this.state.email && this.state.password) {
-      console.log('we are ready to login', this.state.name)
+      console.log('we are ready to login', this.state.email)
 
       this.props.dispatch(
         // this is a thunk in actions
