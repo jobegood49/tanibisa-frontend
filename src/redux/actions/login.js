@@ -55,7 +55,7 @@ export const loginFarmer = payload => {
         return response
       })
       .then(() => {
-        dispatch(push('/profile'))
+        dispatch(push('/profileFarmer'))
       })
       .catch(error => {
         console.error('error:', error)

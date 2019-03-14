@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { getOneFarmer } from '../redux/actions/farmers'
 import Footer from '../components/Footer'
 
-class Profile extends Component {
+class ProfileFarmer extends Component {
   componentDidMount() {
     const token = localStorage.getItem('token')
     this.props.dispatch(getOneFarmer(token))
@@ -28,4 +28,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Profile)
+export default connect(mapStateToProps)(ProfileFarmer)
