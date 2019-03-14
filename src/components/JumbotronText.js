@@ -18,7 +18,8 @@ const JumbotronText = () => {
     <Text>
       Connect <StyledSpan>end-users</StyledSpan> to{' '}
       <StyledSpan>farmers</StyledSpan> directly <br />
-      with fresh & good quality harvested products
+      with <StyledSpan>fresh</StyledSpan> & <StyledSpan>good</StyledSpan>{' '}
+      quality crops
     </Text>
   );
 };
