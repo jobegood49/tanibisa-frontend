@@ -4,6 +4,7 @@ import registerReducer from './register'
 import farmersReducer from './farmers'
 import loginReducer from './login'
 import { connectRouter } from 'connected-react-router'
+import commodityReducer from './commodity'
 
 // https://github.com/supasate/connected-react-router#usage
 // Create a function that takes history as an argument and returns a root reducer.
@@ -17,4 +18,5 @@ export default history =>
     login: loginReducer,
     commodities: commoditiesReducer,
     farmers: farmersReducer,
+    commodity: commodityReducer,
   })
