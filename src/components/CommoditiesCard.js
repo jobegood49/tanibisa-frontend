@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Card = styled.div`
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
   margin: 10px;
   width: 300px;
   display: flex;
@@ -16,6 +16,8 @@ const Card = styled.div`
 
 const CardImage = styled.img`
   border-radius: 5px 5px;
+  width: 300px;
+  height: 191px;
 `;
 
 const StyledHr = styled.hr`
