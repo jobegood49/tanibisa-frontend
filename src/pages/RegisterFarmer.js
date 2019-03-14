@@ -148,7 +148,7 @@ class RegisterFarmer extends Component {
               name="location"
               onChange={this.onChange}
               value={this.state.location}
-              type="password"
+              type="text"
               placeholder="location"
             />
           </FormFieldSet>
