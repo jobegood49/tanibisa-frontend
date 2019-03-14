@@ -1,4 +1,6 @@
 import request from '../request'
+import browserStorage from '../browserStorage'
+import { push } from 'connected-react-router'
 
 export const loginFarmerBegin = () => ({
   type: 'LOGIN_FARMER_BEGIN',
@@ -20,6 +22,11 @@ export const loginFarmerError = error => ({
   },
 })
 
+export const setFarmerState = data => ({
+  type: 'SET_FARMER_STATE',
+  payload: data,
+})
+
 export const loginFarmer = payload => {
   return dispatch => {
     dispatch(loginFarmerBegin())
@@ -32,7 +39,23 @@ export const loginFarmer = payload => {
       .then(response => {
         console.info('response:', response)
         dispatch(loginFarmerSuccess(response))
+        console.log('setting up the localstorage')
+        // Set isAuthenticated to true in the storage
+        // browserStorage.setKey('isAuthenticated', true)
+        // Set token in the storage
+        browserStorage.setKey('token', response.data.token)
+
+        dispatch(
+          setFarmerState({
+            token: response.data.token,
+            isAuthenticated: true,
+            data: response.data.foundFarmer,
+          })
+        )
         return response
+      })
+      .then(() => {
+        dispatch(push('/profileFarmer'))
       })
       .catch(error => {
         console.error('error:', error)

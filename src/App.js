@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Provider } from 'react-redux'; // a component, so it's TitleCase
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Provider } from 'react-redux' // a component, so it's TitleCase
+import { ConnectedRouter } from 'connected-react-router'
 
-import Home from './pages/Home';
-import About from './pages/About';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Commodities from './pages/Commodities';
-import Commodity from './pages/Commodity';
+import Home from './pages/Home'
+import About from './pages/About'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Commodities from './pages/Commodities'
+import Commodity from './pages/Commodity'
+import ProfileFarmer from './pages/ProfileFarmer'
 
 // REDUX INITIAL STATE
 
@@ -67,20 +69,21 @@ import Commodity from './pages/Commodity';
 ////////////////////////////////////////////////////////////////////////////////
 // REDUX STORE
 // We replace the regular store with enhanced configureStore()
-import configureStore from './redux/configurestore';
-import RegisterFarmer from './pages/RegisterFarmer';
-import RegisterBuyer from './pages/RegisterBuyer';
-import LoginFarmer from './pages/LoginFarmer';
-import LoginBuyer from './pages/LoginBuyer';
+import configureStore, { history } from './redux/configurestore'
+import RegisterFarmer from './pages/RegisterFarmer'
+import RegisterBuyer from './pages/RegisterBuyer'
+import LoginFarmer from './pages/LoginFarmer'
+import LoginBuyer from './pages/LoginBuyer'
 
 // import store from './redux/store'
-const store = configureStore(/* provide initial state if any */);
+const store = configureStore(/* provide initial state if any */)
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
+        {/* <Router> */}
+        <ConnectedRouter history={history}>
           <Switch>
             <Route exact path={`/`} component={Home} />
             <Route path={`/about`} component={About} />
@@ -91,6 +94,8 @@ class App extends Component {
             <Route path={`/loginBuyer`} component={LoginBuyer} />
             <Route path={`/login`} component={Login} />
             <Route path={`/commodities`} component={Commodities} />
+            <Route path={`/profileFarmer`} component={ProfileFarmer} />
+
             {/* <Route path={`/commodities/:id`} component={Commodity} /> */}
             {/* <Route path={`/cart`} component={Cart} /> */}
             {/* <Route path={`/checkout`} component={Checkout} /> */}
@@ -99,10 +104,11 @@ class App extends Component {
             {/* <Route path={`/commodities/:id`} component={Commodity} /> */}
             <Route path={`/commodities/apple`} component={Commodity} />
           </Switch>
-        </Router>
+        </ConnectedRouter>
+        {/* </Router> */}
       </Provider>
-    );
+    )
   }
 }
 
-export default App;
+export default App
