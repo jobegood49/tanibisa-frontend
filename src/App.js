@@ -3,14 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux' // a component, so it's TitleCase
 import { ConnectedRouter } from 'connected-react-router'
 
-<<<<<<< HEAD
-import Home from './pages/Home';
-import About from './pages/About';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Commodities from './pages/Commodities';
-import Commodity from './pages/Commodity';
-=======
 import Home from './pages/Home'
 import About from './pages/About'
 import Register from './pages/Register'
@@ -18,7 +10,6 @@ import Login from './pages/Login'
 import Commodities from './pages/Commodities'
 import Commodity from './pages/Commodity'
 import Profile from './pages/Profile'
->>>>>>> Add login redirection to profile page
 
 // REDUX INITIAL STATE
 
@@ -78,22 +69,14 @@ import Profile from './pages/Profile'
 ////////////////////////////////////////////////////////////////////////////////
 // REDUX STORE
 // We replace the regular store with enhanced configureStore()
-<<<<<<< HEAD
-import configureStore from './redux/configurestore';
-import RegisterFarmer from './pages/RegisterFarmer';
-import RegisterBuyer from './pages/RegisterBuyer';
-import LoginFarmer from './pages/LoginFarmer';
-import LoginBuyer from './pages/LoginBuyer';
-=======
 import configureStore, { history } from './redux/configurestore'
 import RegisterFarmer from './pages/RegisterFarmer'
 import RegisterBuyer from './pages/RegisterBuyer'
 import LoginFarmer from './pages/LoginFarmer'
 import LoginBuyer from './pages/LoginBuyer'
->>>>>>> Add connected router functionality to redirect to home on login
 
 // import store from './redux/store'
-const store = configureStore(/* provide initial state if any */);
+const store = configureStore(/* provide initial state if any */)
 
 class App extends Component {
   render() {
@@ -124,8 +107,8 @@ class App extends Component {
         </ConnectedRouter>
         {/* </Router> */}
       </Provider>
-    );
+    )
   }
 }
 
-export default App;
+export default App

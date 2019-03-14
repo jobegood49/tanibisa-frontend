@@ -22,6 +22,11 @@ export const loginFarmerError = error => ({
   },
 })
 
+export const setFarmerState = data => ({
+  type: 'SET_FARMER_STATE',
+  payload: data,
+})
+
 export const loginFarmer = payload => {
   return dispatch => {
     dispatch(loginFarmerBegin())
@@ -39,6 +44,14 @@ export const loginFarmer = payload => {
         // browserStorage.setKey('isAuthenticated', true)
         // Set token in the storage
         browserStorage.setKey('token', response.data.token)
+
+        dispatch(
+          setFarmerState({
+            token: response.data.token,
+            isAuthenticated: true,
+            data: response.data.foundFarmer,
+          })
+        )
         return response
       })
       .then(() => {
