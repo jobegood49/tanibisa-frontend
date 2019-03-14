@@ -91,6 +91,7 @@ class App extends Component {
             <Route path={`/loginBuyer`} component={LoginBuyer} />
             <Route path={`/login`} component={Login} />
             <Route path={`/commodities`} component={Commodities} />
+            <Route path={`/about`} component={About} />
             {/* <Route path={`/commodities/:id`} component={Commodity} /> */}
             {/* <Route path={`/cart`} component={Cart} /> */}
             {/* <Route path={`/checkout`} component={Checkout} /> */}
