@@ -3,15 +3,50 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-const Card = styled.div`
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
-  margin: 10px;
+const CardContainer = styled.main`
+  position: relative;
   width: 300px;
+  height: 350px;
+  margin: 10px;
+`;
+
+const Card = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.5s ease;
+
+  &:hover {
+    transform: rotateY(180deg);
+  }
+`;
+
+const Front = styled.div`
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  backface-visibility: hidden;
+  position: absolute;
+`;
+
+const Back = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #363636;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const CardImage = styled.img`
@@ -49,15 +84,21 @@ const CardButton = styled.button`
 
 const CommoditiesCard = ({ item }) => {
   return (
-    <Card>
-      <CardImage src={item.image} alt={item.name} />
-      <h3>{item.name}</h3>
-      <StyledHr />
-      <PriceText>{item.price}</PriceText>
-      <Link to="/commodities/apple">
-        <CardButton>See More</CardButton>
-      </Link>
-    </Card>
+    <CardContainer>
+      <Card>
+        <Front>
+          <CardImage src={item.image} alt={item.name} />
+          <h3>{item.name}</h3>
+          <StyledHr />
+          <PriceText>{item.price}</PriceText>
+        </Front>
+        <Back>
+          <Link to="/commodities/apple">
+            <CardButton>See More</CardButton>
+          </Link>
+        </Back>
+      </Card>
+    </CardContainer>
   );
 };
 
