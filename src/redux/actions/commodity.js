@@ -7,9 +7,7 @@ export const getCommodityBegin = () => ({
 export const getCommoditySuccess = response => {
   return {
     type: 'GET_COMMODITY_SUCCESS',
-    payload: {
-      response,
-    },
+    commodity: response,
   }
 }
 
@@ -32,7 +30,7 @@ export const getCommodity = id => {
       url: `/commodities/${id}`,
     })
       .then(response => {
-        dispatch(getCommoditySuccess(response))
+        dispatch(getCommoditySuccess(response.data.commodity))
       })
       .catch(error => {
         dispatch(getCommodityError(error))
