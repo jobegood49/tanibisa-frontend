@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { createCartBegin } from '../redux/actions/cart';
+import { createCart } from '../redux/actions/cart';
 
 const Card = styled.div`
   margin: 10px;
@@ -77,7 +77,7 @@ const ProductCard = ({ product, commodity, dispatch }) => {
       ]
     };
     console.log(quantity, product, dispatch);
-    dispatch(createCartBegin(reqData));
+    dispatch(createCart(reqData));
   };
 
   return (
