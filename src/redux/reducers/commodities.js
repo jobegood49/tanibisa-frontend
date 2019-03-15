@@ -1,8 +1,8 @@
 const initialState = {
   latestError: null,
   isLoading: false,
-  data: []
-};
+  data: [],
+}
 
 const commoditiesReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -11,8 +11,8 @@ const commoditiesReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
-        latestError: null
-      };
+        latestError: null,
+      }
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -20,8 +20,8 @@ const commoditiesReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.payload.response.data.commodities
-      };
+        data: action.payload.response.data.commodities,
+      }
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -29,14 +29,14 @@ const commoditiesReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        latestError: action.payload.error
-      };
+        latestError: action.payload.error,
+      }
     }
 
     default: {
-      return state;
+      return state
     }
   }
-};
+}
 
-export default commoditiesReducer;
+export default commoditiesReducer
