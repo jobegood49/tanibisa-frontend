@@ -15,7 +15,9 @@ const StyledDiv = styled.div`
 class Cart extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      totalPrice: 0,
+    }
   }
 
   componentDidMount() {
@@ -23,6 +25,7 @@ class Cart extends Component {
       this.props.dispatch(getOneCart(this.props.cart.data.result.id))
     }
   }
+
   render() {
     return (
       <div>
@@ -33,11 +36,37 @@ class Cart extends Component {
           <h3>Price/unit</h3>
           <h3>Total Price</h3>
         </StyledDiv>
+        {this.props.cart && (
+          <div>
+            {this.props.cart.products &&
+              this.props.cart.products.map(product => {
+                return (
+                  <StyledDiv>
+                    <div>{product._id.commodity_id.name}</div>
+                    <div>{product.quantity}</div>
+                    <div>{product._id.price}</div>
+                    <div>
+                      {parseInt(product._id.price) * parseInt(product.quantity)}
+                    </div>
+                  </StyledDiv>
+                )
+              })}
+          </div>
+        )}
+        <StyledDiv />
         <StyledDiv>
           <h3 />
           <h3 />
           <h3>Total</h3>
-          <h3>1000</h3>
+          <h3>
+            {this.props.cart && this.props.cart.products
+              ? this.props.cart.products.reduce((a, b) => {
+                  const price = parseInt(b._id.price) * parseInt(b.quantity)
+
+                  return a + price
+                }, 0)
+              : 0}
+          </h3>
         </StyledDiv>
         <Footer />
       </div>

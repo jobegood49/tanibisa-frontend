@@ -18,7 +18,7 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.payload,
+        latestResponse: action.payload,
       }
     }
 
