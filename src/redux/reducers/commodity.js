@@ -1,7 +1,7 @@
 const initialState = {
   latestError: null,
   isLoading: false,
-  data: [],
+  data: {} // single commodity is an object
 }
 
 const commodityReducer = (state = initialState, action) => {
@@ -10,7 +10,7 @@ const commodityReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
-        latestError: null,
+        latestError: null
       }
     }
 
@@ -18,7 +18,7 @@ const commodityReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.payload,
+        data: action.payload
       }
     }
 
@@ -26,7 +26,7 @@ const commodityReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        latestError: action.payload.error,
+        latestError: action.payload.error
       }
     }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux' // a component, so it's TitleCase
 import { ConnectedRouter } from 'connected-react-router'
 
