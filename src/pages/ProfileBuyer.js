@@ -1,31 +1,46 @@
-import React, { Component } from 'react'
-import Navigation from '../components/Navigation'
-import { connect } from 'react-redux'
-import { getOneBuyer } from '../redux/actions/buyers'
-import Footer from '../components/Footer'
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Navigation from '../components/Navigation';
+import { connect } from 'react-redux';
+import { getOneBuyer } from '../redux/actions/buyers';
+import Footer from '../components/Footer';
+
+const StyledDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 100px 0;
+`;
 
 class ProfileFarmer extends Component {
   componentDidMount() {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('token');
 
-    this.props.dispatch(getOneBuyer(token))
+    this.props.dispatch(getOneBuyer(token));
   }
   render() {
     return (
       <div>
         <Navigation />
-        <h1>{this.props.buyers && this.props.buyers.email}</h1>
-        <h1>{this.props.buyers && this.props.buyers.name}</h1>
+        <StyledDiv>
+          <div>
+            <img src="/assets/images/avatar.svg" alt="" />
+          </div>
+          <div>
+            <p>Username : {this.props.buyers && this.props.buyers.name}</p>
+            <p>Email : {this.props.buyers && this.props.buyers.email}</p>
+          </div>
+        </StyledDiv>
+
         <Footer />
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    buyers: state.buyers.data,
-  }
-}
+    buyers: state.buyers.data
+  };
+};
 
-export default connect(mapStateToProps)(ProfileFarmer)
+export default connect(mapStateToProps)(ProfileFarmer);
