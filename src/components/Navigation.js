@@ -1,29 +1,30 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
 
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-`
+`;
 
 const NavLi = styled.li`
   display: inline;
   font-size: 16px;
   font-weight: bold;
   margin: 10px 20px;
-`
+`;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: #000;
-`
+`;
 
 const StyledDiv = styled.div`
   display: flex;
   align-items: center;
-`
+`;
 
 const LoginButton = styled.button`
   border-radius: 5px;
@@ -39,7 +40,7 @@ const LoginButton = styled.button`
   &:hover {
     background: hsla(138, 48%, 71%, 1);
   }
-`
+`;
 
 const RegisterButton = styled.button`
   border-radius: 5px;
@@ -56,9 +57,9 @@ const RegisterButton = styled.button`
     background: hsla(138, 48%, 61%, 1);
     color: #fff;
   }
-`
+`;
 
-const Navigation = () => {
+const Navigation = ({ isAuthenticated }) => {
   return (
     <Nav>
       <StyledDiv>
@@ -78,22 +79,52 @@ const Navigation = () => {
         </NavLi>
       </StyledDiv>
       <StyledDiv>
-        <NavLi>
-          <img src="/assets/images/shopping-cart.svg" alt="" />
-        </NavLi>
-        <NavLi>
-          <StyledLink to="/login">
-            <LoginButton>Login</LoginButton>
-          </StyledLink>
-        </NavLi>
-        <NavLi>
-          <StyledLink to="/register">
-            <RegisterButton>Register</RegisterButton>
-          </StyledLink>
-        </NavLi>
+        {!isAuthenticated && (
+          <NavLi>
+            <img src="/assets/images/shopping-cart.svg" alt="" />
+          </NavLi>
+        )}
+
+        {!isAuthenticated && (
+          <NavLi>
+            <StyledLink to="/login">
+              <LoginButton>Login</LoginButton>
+            </StyledLink>
+          </NavLi>
+        )}
+
+        {!isAuthenticated && (
+          <NavLi>
+            <StyledLink to="/register">
+              <RegisterButton>Register</RegisterButton>
+            </StyledLink>
+          </NavLi>
+        )}
+
+        {isAuthenticated && (
+          <NavLi>
+            <StyledLink to="/profileFarmer">Your Profile</StyledLink>
+          </NavLi>
+        )}
+
+        {isAuthenticated && (
+          <NavLi>
+            <LoginButton>Logout</LoginButton>
+          </NavLi>
+        )}
       </StyledDiv>
     </Nav>
-  )
-}
+  );
+};
 
-export default Navigation
+// Get data from Redux store
+// Function to map the specified state to componet's props
+const mapStateToProps = state => {
+  return {
+    // get the value from the store, specifically
+    isAuthenticated: state.farmers.isAuthenticated || false
+    // then it's accessible through isAuthenticated
+  };
+};
+
+export default connect(mapStateToProps)(Navigation);
