@@ -10,6 +10,7 @@ import Login from './pages/Login'
 import Commodities from './pages/Commodities'
 import Commodity from './pages/Commodity'
 import ProfileFarmer from './pages/ProfileFarmer'
+import ProfileBuyer from './pages/ProfileBuyer'
 
 // REDUX INITIAL STATE
 
@@ -97,6 +98,7 @@ class App extends Component {
 
             <Route path={`/commodities`} component={Commodities} />
             <Route path={`/profileFarmer`} component={ProfileFarmer} />
+            <Route path={`/profileBuyer`} component={ProfileBuyer} />
 
             <Route path={`/about`} component={About} />
             {/* <Route path={`/commodities/:id`} component={Commodity} /> */}

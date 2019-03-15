@@ -2,6 +2,8 @@ import commoditiesReducer from './commodities'
 import { combineReducers } from 'redux'
 import registerReducer from './register'
 import farmersReducer from './farmers'
+import buyersReducer from './buyers'
+
 import loginReducer from './login'
 import { connectRouter } from 'connected-react-router'
 import commodityReducer from './commodity'
@@ -18,5 +20,6 @@ export default history =>
     login: loginReducer,
     commodities: commoditiesReducer,
     farmers: farmersReducer,
+    buyers: buyersReducer,
     commodity: commodityReducer,
   })
