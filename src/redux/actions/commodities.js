@@ -1,23 +1,21 @@
 import request from '../request'
 
 export const getCommoditiesBegin = () => ({
-  type: 'GET_COMMODITIES_BEGIN',
+  type: 'GET_COMMODITIES_BEGIN'
 })
 
 export const getCommoditiesSuccess = response => {
   return {
     type: 'GET_COMMODITIES_SUCCESS',
-    payload: {
-      response,
-    },
+    payload: response
   }
 }
 
 export const getCommoditiesError = error => ({
   type: 'GET_COMMODITIES_ERROR',
   payload: {
-    error,
-  },
+    error
+  }
 })
 
 // getCommodities is a thunk
@@ -29,10 +27,10 @@ export const getCommodities = payload => {
     // Use Promise instead of async/await because it's tricky in thunk
     request({
       method: 'get',
-      url: '/commodities',
+      url: '/commodities'
     })
       .then(response => {
-        dispatch(getCommoditiesSuccess(response))
+        dispatch(getCommoditiesSuccess(response.data.commodities))
       })
       .catch(error => {
         dispatch(getCommoditiesError(error))

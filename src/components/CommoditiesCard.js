@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const CardContainer = styled.main`
   position: relative;
   width: 300px;
   height: 350px;
   margin: 10px;
-`;
+`
 
 const Card = styled.div`
   position: absolute;
@@ -20,7 +20,7 @@ const Card = styled.div`
   &:hover {
     transform: rotateY(180deg);
   }
-`;
+`
 
 const Front = styled.div`
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
@@ -33,7 +33,7 @@ const Front = styled.div`
   border-radius: 5px;
   backface-visibility: hidden;
   position: absolute;
-`;
+`
 
 const Back = styled.div`
   position: absolute;
@@ -47,23 +47,23 @@ const Back = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 const CardImage = styled.img`
   border-radius: 5px 5px;
   width: 300px;
   height: 191px;
-`;
+`
 
 const StyledHr = styled.hr`
   width: 216px;
   border-top: 3px solid #62cc84;
-`;
+`
 
 const PriceText = styled.p`
   color: #726767;
   margin-bottom: 50px;
-`;
+`
 
 const CardButton = styled.button`
   border-radius: 5px;
@@ -80,7 +80,7 @@ const CardButton = styled.button`
   &:hover {
     background: hsla(138, 48%, 71%, 1);
   }
-`;
+`
 
 const CommoditiesCard = ({ item }) => {
   return (
@@ -93,13 +93,13 @@ const CommoditiesCard = ({ item }) => {
           <PriceText>{item.price}</PriceText>
         </Front>
         <Back>
-          <Link to="/commodities/apple">
+          <Link to={`/commodities/${item.id}`}>
             <CardButton>See More</CardButton>
           </Link>
         </Back>
       </Card>
     </CardContainer>
-  );
-};
+  )
+}
 
-export default CommoditiesCard;
+export default CommoditiesCard
