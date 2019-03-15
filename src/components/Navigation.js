@@ -1,31 +1,32 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { push } from 'connected-react-router';
+import React from 'react'
+import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { push } from 'connected-react-router'
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { logout } from '../redux/actions/logout'
 
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-`;
+`
 
 const NavLi = styled.li`
   display: inline;
   font-size: 16px;
   font-weight: bold;
   margin: 10px 20px;
-`;
+`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: #000;
-`;
+`
 
 const StyledDiv = styled.div`
   display: flex;
   align-items: center;
-`;
+`
 
 const LoginButton = styled.button`
   border-radius: 5px;
@@ -41,7 +42,7 @@ const LoginButton = styled.button`
   &:hover {
     background: hsla(138, 48%, 71%, 1);
   }
-`;
+`
 
 const RegisterButton = styled.button`
   border-radius: 5px;
@@ -58,20 +59,22 @@ const RegisterButton = styled.button`
     background: hsla(138, 48%, 61%, 1);
     color: #fff;
   }
-`;
+`
 
 const Navigation = ({
   isAuthenticatedFarmer,
   isAuthenticatedBuyer,
-  dispatch
+  dispatch,
 }) => {
-  const logout = () => {
-    localStorage.removeItem('isAuthenticated');
-    localStorage.removeItem('token');
-    dispatch(push('/'));
-  };
+  const handleClick = () => {
+    localStorage.removeItem('isAuthenticated')
+    localStorage.removeItem('token')
+    dispatch(logout())
 
-  const isAuthenticated = isAuthenticatedFarmer || isAuthenticatedBuyer;
+    dispatch(push('/'))
+  }
+
+  const isAuthenticated = isAuthenticatedFarmer || isAuthenticatedBuyer
 
   return (
     <Nav>
@@ -128,13 +131,13 @@ const Navigation = ({
 
         {isAuthenticated && (
           <NavLi>
-            <LoginButton onClick={logout}>Logout</LoginButton>
+            <LoginButton onClick={handleClick}>Logout</LoginButton>
           </NavLi>
         )}
       </StyledDiv>
     </Nav>
-  );
-};
+  )
+}
 
 // Get data from Redux store
 // Function to map the specified state to componet's props
@@ -142,9 +145,9 @@ const mapStateToProps = state => {
   return {
     // get the value from the store, specifically
     isAuthenticatedFarmer: state.farmers.isAuthenticated || false,
-    isAuthenticatedBuyer: state.buyers.isAuthenticated || false
+    isAuthenticatedBuyer: state.buyers.isAuthenticated || false,
     // then it's accessible through isAuthenticated
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps)(Navigation);
+export default connect(mapStateToProps)(Navigation)

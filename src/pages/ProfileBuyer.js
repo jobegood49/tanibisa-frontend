@@ -23,6 +23,9 @@ class ProfileFarmer extends Component {
     this.props.dispatch(push('/createProduct'))
   }
   render() {
+    if (!this.props.isAuthenticated) {
+      this.props.dispatch(push('/'))
+    }
     return (
       <div>
         <Navigation />
@@ -45,6 +48,7 @@ class ProfileFarmer extends Component {
 const mapStateToProps = state => {
   return {
     buyers: state.buyers.data,
+    isAuthenticated: state.buyers.isAuthenticated,
   }
 }
 

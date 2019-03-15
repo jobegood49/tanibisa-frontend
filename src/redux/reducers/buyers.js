@@ -15,6 +15,14 @@ export default function farmerReducer(state = initialState, action) {
       }
     }
 
+    case 'LOGOUT': {
+      return {
+        token: null,
+        data: null,
+        isAuthenticated: false,
+      }
+    }
+
     case 'REMOVE_BUYER_STATE': {
       return {}
     }
