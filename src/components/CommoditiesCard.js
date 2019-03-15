@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Card = styled.div`
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
   margin: 10px;
   width: 300px;
   display: flex;
@@ -12,6 +12,10 @@ const Card = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+
+  &:hover {
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.9);
+  }
 `;
 
 const CardImage = styled.img`
@@ -53,8 +57,7 @@ const CommoditiesCard = ({ item }) => {
       <CardImage src={item.image} alt={item.name} />
       <h3>{item.name}</h3>
       <StyledHr />
-      <PriceText>{item.price}</PriceText>
-
+      <span>{item.products.length} Products</span>
       <Link to={`/commodities/${item.id}`}>
         <CardButton>See More</CardButton>
       </Link>
