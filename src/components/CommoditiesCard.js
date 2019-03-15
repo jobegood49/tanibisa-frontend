@@ -29,11 +29,6 @@ const StyledHr = styled.hr`
   border-top: 3px solid #62cc84;
 `;
 
-const PriceText = styled.p`
-  color: #726767;
-  margin-bottom: 50px;
-`;
-
 const CardButton = styled.button`
   border-radius: 5px;
   width: 200px;

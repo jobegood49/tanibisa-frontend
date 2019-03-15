@@ -52,7 +52,7 @@ class CommoditiesCards extends Component {
     return (
       <Section>
         {this.props.isLoading ? (
-          <span>is loading...</span>
+          <span>Loading Commodities...</span>
         ) : (
           this.props.commodities &&
           this.props.commodities.map((item, index) => {
