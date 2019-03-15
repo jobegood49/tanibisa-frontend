@@ -7,9 +7,7 @@ export const getCommodityBegin = () => ({
 export const getCommoditySuccess = response => {
   return {
     type: 'GET_COMMODITY_SUCCESS',
-    payload: {
-      response
-    }
+    payload: response
   }
 }
 

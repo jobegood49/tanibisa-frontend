@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import CommoditiesCard from '../components/CommoditiesCard';
-import { connect } from 'react-redux';
-import { getCommodities } from '../redux/actions/commodities';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import CommoditiesCard from '../components/CommoditiesCard'
+import { connect } from 'react-redux'
+import { getCommodities } from '../redux/actions/commodities'
 
 class CommoditiesCards extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       commodities: [
         {
@@ -34,12 +34,12 @@ class CommoditiesCards extends Component {
             'Rome beauty apple has soft texture & pleasant smell. It tastes a little sour. This apple originally from Netherland and grow on the highland. '
         }
       ]
-    };
+    }
   }
 
   componentDidMount = () => {
-    this.props.dispatch(getCommodities());
-  };
+    this.props.dispatch(getCommodities())
+  }
 
   render() {
     const Section = styled.section`
@@ -47,7 +47,7 @@ class CommoditiesCards extends Component {
       justify-content: center;
       flex-wrap: wrap;
       margin: 30px 0;
-    `;
+    `
 
     return (
       <Section>
@@ -56,8 +56,8 @@ class CommoditiesCards extends Component {
         ) : (
           this.props.commodities &&
           this.props.commodities.map((item, index) => {
-            console.log(item);
-            return <CommoditiesCard item={item} key={index} />;
+            // console.log(item);
+            return <CommoditiesCard item={item} key={index} />
           })
         )
         //   if (this.props.isLoading) {
@@ -72,7 +72,7 @@ class CommoditiesCards extends Component {
         // }
         }
       </Section>
-    );
+    )
   }
 }
 
@@ -80,7 +80,7 @@ const mapStateToProps = state => {
   return {
     commodities: state.commodities.data,
     isLoading: state.commodities.isLoading
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps)(CommoditiesCards);
+export default connect(mapStateToProps)(CommoditiesCards)
