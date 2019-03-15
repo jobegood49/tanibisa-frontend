@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation'
 import { connect } from 'react-redux'
 import { getOneBuyer } from '../redux/actions/buyers'
 import Footer from '../components/Footer'
+import { push } from 'connected-react-router'
 
 const StyledDiv = styled.div`
   display: flex;

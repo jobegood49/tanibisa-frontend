@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getOneFarmer } from '../redux/actions/farmers'
 import Footer from '../components/Footer'
 import { push } from 'connected-react-router'
+import styled from 'styled-components'
 
 const StyledDiv = styled.div`
   display: flex;
