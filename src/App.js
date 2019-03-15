@@ -71,12 +71,22 @@ import Cart from './pages/Cart';
 ////////////////////////////////////////////////////////////////////////////////
 // REDUX STORE
 // We replace the regular store with enhanced configureStore()
+<<<<<<< HEAD
 import configureStore, { history } from './redux/configurestore';
 import RegisterFarmer from './pages/RegisterFarmer';
 import RegisterBuyer from './pages/RegisterBuyer';
 import LoginFarmer from './pages/LoginFarmer';
 import LoginBuyer from './pages/LoginBuyer';
 import CreateProduct from './pages/CreateProduct';
+=======
+import configureStore, { history } from './redux/configurestore'
+import RegisterFarmer from './pages/RegisterFarmer'
+import RegisterBuyer from './pages/RegisterBuyer'
+import LoginFarmer from './pages/LoginFarmer'
+import LoginBuyer from './pages/LoginBuyer'
+import CreateProduct from './pages/CreateProduct'
+import Cart from './pages/Cart'
+>>>>>>> Add product to cart and redirect to cart page
 
 // import store from './redux/store'
 const store = configureStore(/* provide initial state if any */);
@@ -102,6 +112,7 @@ class App extends Component {
             <Route path={`/profileFarmer`} component={ProfileFarmer} />
             <Route path={`/profileBuyer`} component={ProfileBuyer} />
             <Route path={`/createProduct`} component={CreateProduct} />
+            <Route path={`/cart`} component={Cart} />
 
             <Route path={`/about`} component={About} />
             {/* <Route path={`/commodities/:id`} component={Commodity} /> */}

@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import Navigation from '../components/Navigation';
-import Footer from '../components/Footer';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import Navigation from '../components/Navigation'
+import Footer from '../components/Footer'
 
 const StyledDiv = styled.div`
   display: flex;
   justify-content: space-around;
   background: #f1f1f1;
   margin: 30px 0;
-`;
+`
 
 class Cart extends Component {
   constructor() {
-    super();
-    this.state = {};
+    super()
+    this.state = {}
   }
   render() {
     return (
@@ -33,8 +33,8 @@ class Cart extends Component {
         </StyledDiv>
         <Footer />
       </div>
-    );
+    )
   }
 }
 
-export default Cart;
+export default Cart
