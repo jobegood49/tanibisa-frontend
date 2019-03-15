@@ -30,7 +30,7 @@ export const getCommodities = payload => {
       url: '/commodities'
     })
       .then(response => {
-        dispatch(getCommoditiesSuccess(response))
+        dispatch(getCommoditiesSuccess(response.data.commodities))
       })
       .catch(error => {
         dispatch(getCommoditiesError(error))

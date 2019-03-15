@@ -1,7 +1,7 @@
 const initialState = {
   latestError: null,
   isLoading: false,
-  data: [],
+  data: []
 }
 
 const commoditiesReducer = (state = initialState, action) => {
@@ -11,7 +11,7 @@ const commoditiesReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
-        latestError: null,
+        latestError: null
       }
     }
 
@@ -20,7 +20,7 @@ const commoditiesReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.payload.response.data.commodities,
+        data: action.payload
       }
     }
 
@@ -29,7 +29,7 @@ const commoditiesReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        latestError: action.payload.error,
+        latestError: action.payload.error
       }
     }
 

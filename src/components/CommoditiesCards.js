@@ -78,8 +78,8 @@ class CommoditiesCards extends Component {
 
 const mapStateToProps = state => {
   return {
-    commodities: state.commodities.data,
-    isLoading: state.commodities.isLoading
+    isLoading: state.commodities.isLoading,
+    commodities: state.commodities.data
   }
 }
 
