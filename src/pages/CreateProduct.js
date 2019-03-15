@@ -12,9 +12,10 @@ class CreateProduct extends Component {
     super()
     this.state = {
       price: '',
-      commodity_id: '',
+      commodity_id: ''
     }
   }
+
   componentDidMount() {
     this.props.dispatch(getCommodities())
   }
@@ -22,19 +23,20 @@ class CreateProduct extends Component {
   onChange = event => {
     console.log(event.target.value)
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     })
   }
 
   handleSubmit = event => {
+    console.log('submit for create product')
     event.preventDefault()
-    console.log('inside the submit for create product')
+
     if (this.state.price && this.state.commodity_id) {
       this.props.dispatch(
         // this is a thunk in actions
         addProduct({
-          price: this.state.name,
-          commodity: this.state.commodity_id,
+          price: Number(this.state.price),
+          commodity_id: this.state.commodity_id
         })
       )
     } else {
@@ -66,7 +68,7 @@ class CreateProduct extends Component {
             name="price"
             onChange={this.onChange}
             value={this.state.price}
-            type="text"
+            type="number"
             placeholder="price"
           />
 
@@ -83,7 +85,7 @@ const mapStateToProps = state => {
   return {
     isLoading: state.commodities.isLoading,
     commodities: state.commodities.data,
-    farmers: state.farmers.data,
+    farmers: state.farmers.data
   }
 }
 
