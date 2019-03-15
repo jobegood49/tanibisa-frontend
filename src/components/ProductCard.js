@@ -76,9 +76,23 @@ const ProductCard = ({ product, commodity }) => {
         <StyledP>Location: {product.farmer_id.location}</StyledP>
       </CardMeta>
       <QuantityHandler>
-        <IncrementDecrementButton>-</IncrementDecrementButton>
-        <p>Quantity: {quantity}</p>
-        <IncrementDecrementButton>+</IncrementDecrementButton>
+        <IncrementDecrementButton
+          onClick={event => {
+            setQuantity(prevState => prevState - 1)
+          }}
+        >
+          -
+        </IncrementDecrementButton>
+        <p>
+          Quantity: <b>{quantity}</b>
+        </p>
+        <IncrementDecrementButton
+          onClick={event => {
+            setQuantity(prevState => prevState + 1)
+          }}
+        >
+          +
+        </IncrementDecrementButton>
       </QuantityHandler>
       <BuyButton>Buy</BuyButton>
     </Card>
