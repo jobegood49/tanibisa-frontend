@@ -75,6 +75,7 @@ import RegisterFarmer from './pages/RegisterFarmer'
 import RegisterBuyer from './pages/RegisterBuyer'
 import LoginFarmer from './pages/LoginFarmer'
 import LoginBuyer from './pages/LoginBuyer'
+import CreateProduct from './pages/CreateProduct'
 
 // import store from './redux/store'
 const store = configureStore(/* provide initial state if any */)
@@ -99,6 +100,7 @@ class App extends Component {
             <Route path={`/commodities`} component={Commodities} />
             <Route path={`/profileFarmer`} component={ProfileFarmer} />
             <Route path={`/profileBuyer`} component={ProfileBuyer} />
+            <Route path={`/createProduct`} component={CreateProduct} />
 
             <Route path={`/about`} component={About} />
             {/* <Route path={`/commodities/:id`} component={Commodity} /> */}

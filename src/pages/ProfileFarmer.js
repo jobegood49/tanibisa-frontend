@@ -1,20 +1,24 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import Navigation from '../components/Navigation';
-import { connect } from 'react-redux';
-import { getOneFarmer } from '../redux/actions/farmers';
-import Footer from '../components/Footer';
+import React, { Component } from 'react'
+import Navigation from '../components/Navigation'
+import { connect } from 'react-redux'
+import { getOneFarmer } from '../redux/actions/farmers'
+import Footer from '../components/Footer'
+import { push } from 'connected-react-router'
+import styled from 'styled-components'
 
 const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
   margin: 100px 0;
-`;
+`
 
 class ProfileFarmer extends Component {
   componentDidMount() {
-    const token = localStorage.getItem('token');
-    this.props.dispatch(getOneFarmer(token));
+    const token = localStorage.getItem('token')
+    this.props.dispatch(getOneFarmer(token))
+  }
+  createProduct = () => {
+    this.props.dispatch(push('/createProduct'))
   }
   render() {
     return (
@@ -32,16 +36,19 @@ class ProfileFarmer extends Component {
             </p>
           </div>
         </StyledDiv>
+
+        <button onClick={this.createProduct}>Create A Product</button>
+
         <Footer />
       </div>
-    );
+    )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    farmers: state.farmers.data
-  };
-};
+    farmers: state.farmers.data,
+  }
+}
 
-export default connect(mapStateToProps)(ProfileFarmer);
+export default connect(mapStateToProps)(ProfileFarmer)
