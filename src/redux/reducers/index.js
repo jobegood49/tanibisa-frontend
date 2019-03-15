@@ -9,6 +9,7 @@ import { connectRouter } from 'connected-react-router'
 import commodityReducer from './commodity'
 import addProductReducer from './addproduct'
 import cartReducer from './cart'
+import onecartReducer from './getonecart'
 
 // https://github.com/supasate/connected-react-router#usage
 // Create a function that takes history as an argument and returns a root reducer.
@@ -26,4 +27,5 @@ export default history =>
     commodity: commodityReducer,
     addProduct: addProductReducer,
     cart: cartReducer,
+    onecart: onecartReducer,
   })
