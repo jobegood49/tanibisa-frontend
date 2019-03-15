@@ -85,6 +85,11 @@ export const loginBuyerError = error => ({
   },
 })
 
+export const setBuyerState = data => ({
+  type: 'SET_BUYER_STATE',
+  payload: data,
+})
+
 export const loginBuyer = payload => {
   return dispatch => {
     dispatch(loginBuyerBegin())
@@ -97,7 +102,19 @@ export const loginBuyer = payload => {
       .then(response => {
         console.info('response:', response)
         dispatch(loginBuyerSuccess(response))
+        browserStorage.setKey('token', response.data.token)
+        dispatch(
+          setBuyerState({
+            token: response.data.token,
+            isAuthenticated: true,
+            data: response.data.foundBuyer,
+          })
+        )
+
         return response
+      })
+      .then(() => {
+        dispatch(push('/profileBuyer'))
       })
       .catch(error => {
         console.error('error:', error)
