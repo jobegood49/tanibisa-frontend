@@ -1,30 +1,31 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
+import React from 'react'
+import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { push } from 'connected-react-router'
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-`;
+`
 
 const NavLi = styled.li`
   display: inline;
   font-size: 16px;
   font-weight: bold;
   margin: 10px 20px;
-`;
+`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: #000;
-`;
+`
 
 const StyledDiv = styled.div`
   display: flex;
   align-items: center;
-`;
+`
 
 const LoginButton = styled.button`
   border-radius: 5px;
@@ -40,7 +41,7 @@ const LoginButton = styled.button`
   &:hover {
     background: hsla(138, 48%, 71%, 1);
   }
-`;
+`
 
 const RegisterButton = styled.button`
   border-radius: 5px;
@@ -57,9 +58,15 @@ const RegisterButton = styled.button`
     background: hsla(138, 48%, 61%, 1);
     color: #fff;
   }
-`;
+`
 
-const Navigation = ({ isAuthenticated }) => {
+const Navigation = ({ isAuthenticated, dispatch }) => {
+  const logout = () => {
+    localStorage.removeItem('isAuthenticated')
+    localStorage.removeItem('token')
+    dispatch(push('/'))
+  }
+
   return (
     <Nav>
       <StyledDiv>
@@ -109,22 +116,22 @@ const Navigation = ({ isAuthenticated }) => {
 
         {isAuthenticated && (
           <NavLi>
-            <LoginButton>Logout</LoginButton>
+            <LoginButton onClick={logout}>Logout</LoginButton>
           </NavLi>
         )}
       </StyledDiv>
     </Nav>
-  );
-};
+  )
+}
 
 // Get data from Redux store
 // Function to map the specified state to componet's props
 const mapStateToProps = state => {
   return {
     // get the value from the store, specifically
-    isAuthenticated: state.farmers.isAuthenticated || false
+    isAuthenticated: state.farmers.isAuthenticated || false,
     // then it's accessible through isAuthenticated
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps)(Navigation);
+export default connect(mapStateToProps)(Navigation)
