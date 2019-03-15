@@ -6,6 +6,29 @@ const initialState = {
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'GET_ONECART_BEGIN': {
+      return {
+        ...state,
+        isLoading: true,
+        latestError: null,
+      }
+    }
+
+    case 'GET_ONECART_SUCCESS': {
+      return {
+        ...state,
+        isLoading: false,
+        data: action.payload,
+      }
+    }
+
+    case 'GET_ONECART_ERROR': {
+      return {
+        ...state,
+        isLoading: false,
+        latestError: action.payload.error,
+      }
+    }
     case 'CREATE_CART_BEGIN': {
       // Mark the state as "loading" so we can show a spinner or something
       // Also, reset any errors. We're starting fresh.
